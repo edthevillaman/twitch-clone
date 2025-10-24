@@ -3,65 +3,70 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>StreamHub — Prototype</title>
-<link rel="stylesheet" href="styles.css" />
+<title>StreamHub — Home</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="topbar">
   <div class="brand">StreamHub</div>
-  <div class="search"><input id="search" placeholder="Search channels, games..." /></div>
-  <div class="actions"><button id="goLive" class="btn">Go Live</button></div>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="golive.html">Go Live</a>
+  </nav>
+  <div class="actions"><input id="search" placeholder="Search channels..." /></div>
 </header>
 
-<div class="app">
-  <aside class="leftcol">
-    <nav>
-      <h4>Browse</h4>
-      <ul>
-        <li>Recommended</li>
-        <li>Games</li>
-        <li>Esports</li>
-        <li>Music</li>
-        <li>IRL</li>
-      </ul>
-      <h4>Following</h4>
-      <ul id="followingList">
-        <li>GamerOne</li>
-        <li>CoderLive</li>
-        <li>ChillBeats</li>
-      </ul>
-    </nav>
+<main class="app">
+  <aside class="leftcol panel">
+    <h4>Browse</h4>
+    <ul>
+      <li>Recommended</li>
+      <li>Games</li>
+      <li>Music</li>
+      <li>IRL</li>
+    </ul>
+    <h4>Following</h4>
+    <ul id="followingList">
+      <li>GamerOne</li>
+      <li>CoderLive</li>
+      <li>ChillBeats</li>
+    </ul>
   </aside>
 
-  <main class="maincol">
-    <section class="player panel">
-      <div class="video" id="videoPlaceholder">VIDEO PLAYER</div>
-      <div class="video-meta">
-        <h2 id="streamTitle">Cool Stream — Prototype</h2>
-        <div class="meta">by <strong id="streamerName">Streamer123</strong> · 2.3K viewers</div>
-      </div>
-    </section>
-
-    <section class="recommend panel">
-      <h3>Live Channels</h3>
-      <div class="cards" id="liveCards"></div>
-    </section>
-  </main>
-
-  <aside class="chatcol panel chatpanel">
-    <div class="chatHeader">
-      <h3>Chat</h3>
-      <div class="small">#coolstream</div>
+  <section class="maincol">
+    <div class="hero panel">
+      <h2>Live Now</h2>
+      <p class="muted">Click a channel to watch or donate — this is a frontend-only prototype.</p>
     </div>
-    <div class="chatWindow" id="chatWindow" aria-live="polite"></div>
-    <div class="chatComposer">
-      <input id="chatInput" placeholder="Say something nice..." />
-      <button id="sendChat" class="btn">Send</button>
-    </div>
+
+    <div id="channels" class="channels"></div>
+  </section>
+
+  <aside class="chatcol panel">
+    <div class="panel-title">Now Playing</div>
+    <div id="nowPlaying" class="nowPlaying">No channel selected</div>
+    <div style="margin-top:12px;"><button id="openDonate" class="btn primary" disabled>Donate</button></div>
   </aside>
+</main>
+
+<!-- Donate modal -->
+<div id="donateModal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" id="closeDonate">&times;</button>
+    <h3>Donate to <span id="donateTarget">Streamer</span></h3>
+    <label>Amount (USD)</label>
+    <input id="donationAmount" type="number" min="1" value="5" />
+    <label>Message (optional)</label>
+    <input id="donationMessage" type="text" placeholder="Say something nice..." />
+    <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
+      <button id="confirmDonate" class="btn primary">Donate (fake)</button>
+      <button id="cancelDonate" class="btn outline">Cancel</button>
+    </div>
+    <p class="muted" style="margin-top:8px">This is a demo — no real payment is processed.</p>
+  </div>
 </div>
 
-<footer class="footer">Prototype — frontend only. To make real streaming you need a streaming backend (RTMP), video hosting, auth and moderation systems.</footer>
+<footer class="footer">StreamHub prototype — frontend only</footer>
 
 <script src="script.js"></script>
 </body>
