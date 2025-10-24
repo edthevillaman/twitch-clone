@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>StreamHub — Prototype</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">StreamHub</div>
+  <div class="search"><input id="search" placeholder="Search channels, games..." /></div>
+  <div class="actions"><button id="goLive" class="btn">Go Live</button></div>
+</header>
+
+<div class="app">
+  <aside class="leftcol">
+    <nav>
+      <h4>Browse</h4>
+      <ul>
+        <li>Recommended</li>
+        <li>Games</li>
+        <li>Esports</li>
+        <li>Music</li>
+        <li>IRL</li>
+      </ul>
+      <h4>Following</h4>
+      <ul id="followingList">
+        <li>GamerOne</li>
+        <li>CoderLive</li>
+        <li>ChillBeats</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="maincol">
+    <section class="player panel">
+      <div class="video" id="videoPlaceholder">VIDEO PLAYER</div>
+      <div class="video-meta">
+        <h2 id="streamTitle">Cool Stream — Prototype</h2>
+        <div class="meta">by <strong id="streamerName">Streamer123</strong> · 2.3K viewers</div>
+      </div>
+    </section>
+
+    <section class="recommend panel">
+      <h3>Live Channels</h3>
+      <div class="cards" id="liveCards"></div>
+    </section>
+  </main>
+
+  <aside class="chatcol panel chatpanel">
+    <div class="chatHeader">
+      <h3>Chat</h3>
+      <div class="small">#coolstream</div>
+    </div>
+    <div class="chatWindow" id="chatWindow" aria-live="polite"></div>
+    <div class="chatComposer">
+      <input id="chatInput" placeholder="Say something nice..." />
+      <button id="sendChat" class="btn">Send</button>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">Prototype — frontend only. To make real streaming you need a streaming backend (RTMP), video hosting, auth and moderation systems.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
